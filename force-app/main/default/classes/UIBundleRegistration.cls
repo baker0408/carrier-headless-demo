@@ -18,9 +18,8 @@ global without sharing class UIBundleRegistration {
     //   sf data query --target-org <alias> \
     //     --query "SELECT Id, Name FROM BuyerGroup"
     //
-    // TODO: replace <Buyer_Group_Id_Placeholder> with your 18-char BuyerGroup
-    // Id (starts with `0ZI`) before deploying.
-    private static final String DEFAULT_BUYER_GROUP_ID = '<Buyer_Group_Id_Placeholder>';
+    // Configured for the Carrier org: North America buyer group.
+    private static final String DEFAULT_BUYER_GROUP_ID = '0ZIfj000000CaMHGA0';
 
     // Permission Set Group every newly self-registered buyer is granted so
     // they inherit the store's commerce entitlement (cart, checkout, order
@@ -32,9 +31,9 @@ global without sharing class UIBundleRegistration {
     //   sf data query --target-org <alias> \
     //     --query "SELECT Id, DeveloperName FROM PermissionSetGroup"
     //
-    // TODO: replace <Buyer_permission_set_group> with your store's buyer PSG
-    // DeveloperName before deploying.
-    private static final String BUYER_PERMISSION_SET_GROUP = '<Buyer_permission_set_group>';
+    // Configured for the Carrier org: the base B2B Commerce buyer PSG every
+    // Cirrus buyer community user holds (verified 2026-10-14).
+    private static final String BUYER_PERMISSION_SET_GROUP = 'SDO_B2BCommerce_Base_Buyer';
 
     /**
      * Registers a new external user, enrols them in the default buyer group,

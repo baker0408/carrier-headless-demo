@@ -8,7 +8,7 @@
 //     --query "SELECT Id, Name, Type FROM WebStore WHERE Type = 'B2B'"
 export const COMMERCE = {
 	// TODO: replace with your B2B Commerce WebStore Id (starts with 0ZE).
-	WEBSTORE_ID: "<Webstore_Id_Placeholder>",
+	WEBSTORE_ID: "0ZEfj0000020cH3GAI",
 	API_VERSION: "v67.0",
 } as const;
 
