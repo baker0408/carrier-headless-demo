@@ -6,27 +6,27 @@
 export const ROUTES = {
 	LOGIN: {
 		PATH: "/login",
-		TITLE: "Login | MyApp",
+		TITLE: "Login | Carrier Comfort360",
 	},
 	REGISTER: {
 		PATH: "/register",
-		TITLE: "Create Account | MyApp",
+		TITLE: "Create Account | Carrier Comfort360",
 	},
 	FORGOT_PASSWORD: {
 		PATH: "/forgot-password",
-		TITLE: "Recover Password | MyApp",
+		TITLE: "Recover Password | Carrier Comfort360",
 	},
 	RESET_PASSWORD: {
 		PATH: "/reset-password",
-		TITLE: "Reset Password | MyApp",
+		TITLE: "Reset Password | Carrier Comfort360",
 	},
 	PROFILE: {
 		PATH: "/profile",
-		TITLE: "My Profile | MyApp",
+		TITLE: "My Profile | Carrier Comfort360",
 	},
 	CHANGE_PASSWORD: {
 		PATH: "/change-password",
-		TITLE: "Change Password | MyApp",
+		TITLE: "Change Password | Carrier Comfort360",
 	},
 } as const;
 

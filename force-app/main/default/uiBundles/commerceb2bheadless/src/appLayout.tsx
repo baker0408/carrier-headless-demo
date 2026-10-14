@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router";
-import { Infinity as InfinityIcon, Menu, Package, X } from "lucide-react";
+import { Menu, Package, X } from "lucide-react";
+import carrierLogo from "@assets/carrier-logo.png";
 import { AuthMenu } from "@/components/auth/AuthMenu";
 import { useAuth } from "@/context/AuthContext";
 import { DropdownMenuItem } from "./components/ui/dropdown-menu";
@@ -59,11 +60,14 @@ export default function AppLayout() {
 							<div className="flex items-center gap-3">
 								<Link
 									to="/"
-									className="flex items-center gap-2 text-primary font-bold text-2xl tracking-tight"
-									aria-label="Cirrus home"
+									className="flex items-center gap-2"
+									aria-label="Carrier Comfort360 home"
 								>
-									<InfinityIcon className="h-7 w-7" strokeWidth={2.5} />
-									<span>cirrus</span>
+									<img
+										src={carrierLogo}
+										alt="Carrier Comfort360"
+										className="h-8 w-auto"
+									/>
 								</Link>
 								{!isAuthRoute && <MarketSwitcher />}
 							</div>

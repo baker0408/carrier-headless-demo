@@ -7,6 +7,7 @@ import CategorySidebar from "@/components/catalog/CategorySidebar";
 import ProductGrid from "@/components/catalog/ProductGrid";
 import { useCategories } from "@/hooks/useCategories";
 import { useProductSearch } from "@/hooks/useProductSearch";
+import carrierHero from "@assets/carrier-hero.png";
 
 // Storefront landing:
 //   - Left sidebar with nested categories (always visible on desktop; drawer on mobile)
@@ -51,23 +52,29 @@ export default function Storefront() {
 				</aside>
 
 				<div className="space-y-10 min-w-0">
-					{/* Promo banner */}
-					<section className="rounded-xl border bg-gradient-to-r from-primary/15 via-primary/5 to-background p-8 sm:p-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-						<div className="space-y-2">
-							<div className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
-								<Tag className="w-3 h-3" /> Limited time
+					{/* Carrier hero */}
+					<section className="relative overflow-hidden rounded-xl border">
+						<img
+							src={carrierHero}
+							alt="Carrier 48FE WeatherMaker rooftop units"
+							className="absolute inset-0 h-full w-full object-cover"
+						/>
+						<div className="absolute inset-0 bg-gradient-to-r from-sidebar-primary/90 via-primary/75 to-primary/25" />
+						<div className="relative p-8 sm:p-12 lg:p-16 max-w-2xl space-y-3 text-white">
+							<div className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-white/15 text-white text-xs font-semibold">
+								<Tag className="w-3 h-3" /> Comfort360 Dealer Parts
 							</div>
-							<h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
-								Sale on everything
+							<h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+								48FE WeatherMaker Parts
 							</h1>
-							<p className="text-muted-foreground max-w-lg">
-								Stock up on your favourites today — discounts applied automatically at
-								checkout.
+							<p className="text-white/90 max-w-lg">
+								Genuine Carrier replacement parts for the 48FE WeatherMaker rooftop
+								unit — ordered fast through Comfort360.
 							</p>
+							<Button size="lg" variant="secondary" asChild>
+								<Link to="#featured">Shop parts</Link>
+							</Button>
 						</div>
-						<Button size="lg" asChild>
-							<Link to="#featured">Shop now</Link>
-						</Button>
 					</section>
 
 					{catError && (
