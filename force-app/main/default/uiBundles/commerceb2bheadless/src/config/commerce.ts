@@ -7,7 +7,7 @@
 //   sf data query --target-org <alias> \
 //     --query "SELECT Id, Name, Type FROM WebStore WHERE Type = 'B2B'"
 export const COMMERCE = {
-	// TODO: replace with your B2B Commerce WebStore Id (starts with 0ZE).
+	// Configured for the Carrier org: SDO - B2B Commerce Enhanced webstore.
 	WEBSTORE_ID: "0ZEfj0000020cH3GAI",
 	API_VERSION: "v67.0",
 } as const;

@@ -11,7 +11,7 @@ import carrierHero from "@assets/carrier-hero.png";
 
 // Storefront landing:
 //   - Left sidebar with nested categories (always visible on desktop; drawer on mobile)
-//   - Hero promo banner ("Sale on everything")
+//   - Carrier hero banner ("48FE WeatherMaker Parts" / "Comfort360 Dealer Parts")
 //   - Featured products driven off the first real category returned by the API
 export default function Storefront() {
 	const { data: catData, loading: catLoading, error: catError } = useCategories();

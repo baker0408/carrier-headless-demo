@@ -41,7 +41,10 @@ round-trips through the v67 Commerce API against the 68.0 org (cart badge → 1)
 > Note: products currently show **"Request quote"** rather than a price —
 > Lauren's **Cirrus Silver** buyer group maps to a no-price entitlement in this
 > SDO. That is store-side pricing data, not a storefront issue; the quote /
-> add-to-cart flow works regardless.
+> add-to-cart flow works regardless. The **North America** buyer group that
+> self-registered buyers land in maps to the **Cirrus Price Book**, which does
+> carry Carrier MSRP (e.g. `CRTRVUKT002A00` = $2195) — so a self-service buyer
+> is expected to see list pricing, unlike the Cirrus Silver dealer group.
 
 ## Key Org IDs & Config (verified 2026-10-14)
 
@@ -63,8 +66,15 @@ groups. It does **not** create its own commerce data.
 - `force-app/main/default/classes/UIBundleRegistration.cls`
   — `DEFAULT_BUYER_GROUP_ID = '0ZIfj000000CaMHGA0'` (North America),
   `BUYER_PERMISSION_SET_GROUP = 'SDO_B2BCommerce_Base_Buyer'` (the PSG all SDO
-  Cirrus buyers already hold; self-registered buyers are added to the group and
-  assigned the PSG).
+  Cirrus buyers already hold). On self-registration (`POST /auth/register`) the
+  Apex enrols the new user in that buyer group and assigns the PSG `@future`.
+  **These two values are verified by data query (the PSG exists and existing
+  Cirrus buyers hold it; the buyer group exists and maps to a priced book) but
+  the self-registration flow itself was not exercised live** — the live check
+  (below) logged in as an existing buyer. The `@future` PSG assignment also
+  recalculates after the synchronous `Site.login`, so a brand-new self-registered
+  buyer may hit their first session before entitlement settles. Validate the
+  register flow before demoing self-service sign-up.
 - `force-app/main/default/networks/commerceb2bheadless.network-meta.xml`
   — member-group profiles `admin`, `B2B Buyer Profile`, and
   `sdo-customer community plus`. The last was added so existing SDO B2B buyers
@@ -78,7 +88,11 @@ groups. It does **not** create its own commerce data.
 - Theme: `src/styles/global.css` tokens recolored to Carrier blue
   (`--primary: oklch(0.42 0.15 258)` ≈ `#003DA5`; dark accent
   `oklch(0.31 0.13 262)` ≈ `#002A6E`); body font **Inter** (loaded in
-  `index.html`).
+  `index.html`). Inter is pulled from the Google Fonts CDN — the one branding
+  element not self-hosted (logo/hero are static resources). If Experience Cloud
+  CSP blocks `fonts.googleapis.com`/`fonts.gstatic.com`, the body falls back to
+  `system-ui` (still clean, non-Carrier). To eliminate the dependency, self-host
+  the Inter woff2 in the bundle.
 - Copy: header wordmark → Carrier logo; hero → "48FE WeatherMaker Parts" /
   "Comfort360 Dealer Parts" (`src/pages/commerce/Storefront.tsx`); page titles →
   "… | Carrier Comfort360" (`src/config/auth.ts`); `index.html` title.

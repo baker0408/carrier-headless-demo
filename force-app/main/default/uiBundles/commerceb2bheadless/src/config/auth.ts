@@ -58,13 +58,13 @@ export const AUTH_REDIRECT_PARAM = "startUrl";
  * Placeholder text constants for authentication form inputs.
  */
 export const AUTH_PLACEHOLDERS = {
-	EMAIL: "asalesforce@example.com",
+	EMAIL: "buyer@dealer.example.com",
 	PASSWORD: "",
 	PASSWORD_CREATE: "",
 	PASSWORD_CONFIRM: "",
 	PASSWORD_NEW: "",
 	PASSWORD_NEW_CONFIRM: "",
-	FIRST_NAME: "Astro",
-	LAST_NAME: "Salesforce",
-	USERNAME: "asalesforce",
+	FIRST_NAME: "Jordan",
+	LAST_NAME: "Rivera",
+	USERNAME: "jrivera",
 } as const;
