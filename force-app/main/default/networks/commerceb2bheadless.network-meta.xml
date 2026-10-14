@@ -37,6 +37,7 @@
     <networkMemberGroups>
         <profile>admin</profile>
         <profile>B2B Buyer Profile</profile>
+        <profile>sdo-customer community plus</profile>
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
